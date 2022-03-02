@@ -2,36 +2,131 @@
 
 You can use the [editor on GitHub](https://github.com/Sugoi97169/Sugoi97169.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+let y =200;
+let sx =5;
+let sy =5;
+let speed =10;
 
-### Markdown
+ 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+let score =0;
+let alive =true;
+let life =3;
 
-```markdown
-Syntax highlighted code block
+ 
 
-# Header 1
-## Header 2
-### Header 3
+function setup(){
+createCanvas(800,400);
 
-- Bulleted
-- List
+ 
 
-1. Numbered
-2. List
+let theta = random(-60,60) *PI/180;
 
-**Bold** and _Italic_ and `Code` text
+ 
 
-[Link](url) and ![Image](src)
-```
+sx = ( speed * cos(theta));
+sy =  (speed* sin(theta));
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+ 
 
-### Jekyll Themes
+}
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Sugoi97169/Sugoi97169.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+ 
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+function keyPressed(){
+  
+  x = 400;
+  y =200;
+  let theta = random(-60,60) *PI/180;
+
+ 
+
+sx = ( speed * cos(theta));
+sy = (speed* sin(theta));
+alive =true;
+
+if(life<=0){
+life =3;
+score =0;
+}
+}
+
+ 
+
+ 
+
+function draw(){
+background(255);  
+fill(255,0,0); //<>//
+circle(x,y,20);  
+fill(0,0,255);
+rect(800-40,mouseY-50, 20,100);
+rect(20,y-50, 20,100);
+
+ 
+
+x=x+sx;
+y=y+sy;
+
+ 
+
+if ( x< 40 ){
+  sx= -sx;
+}
+
+ 
+
+
+if ( x > 780)
+{
+ sx=0;
+ sy=0;
+ 
+ if ( alive) {
+  
+   life=life -1;
+   
+ }
+ 
+ alive = false;
+ 
+}
+
+ 
+
+if (x > 760 && y > (mouseY -50) && y < (mouseY +50))
+{
+ sx=-sx; 
+ if ( alive)
+ {
+ score=score+10;
+ 
+ }
+}
+
+ 
+
+ 
+
+
+if (y > 400 || y< 0 ){
+  sy= -sy;
+}
+
+ 
+
+textSize(10);
+text("Score:"+score+ " Life:" +life , 360, 20); 
+
+ 
+
+
+if ( life <=0)
+{
+  textSize(50);
+  fill(255,0,0);
+ text("Game Over", 300, 200); 
+}
+  
+}
