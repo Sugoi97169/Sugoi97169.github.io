@@ -2,131 +2,21 @@
 
 You can use the [editor on GitHub](https://github.com/Sugoi97169/Sugoi97169.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
-let y =200;
-let sx =5;
-let sy =5;
-let speed =10;
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch_220302d.js"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
 
-let score =0;
-let alive =true;
-let life =3;
+  <!-- This line removes any default padding and style.
+       You might only need one of these values set. -->
+  <style> body { padding: 0; margin: 0; } </style>
+</head>
 
- 
-
-function setup(){
-createCanvas(800,400);
-
- 
-
-let theta = random(-60,60) *PI/180;
-
- 
-
-sx = ( speed * cos(theta));
-sy =  (speed* sin(theta));
-
- 
-
-}
-
- 
-
-
-function keyPressed(){
-  
-  x = 400;
-  y =200;
-  let theta = random(-60,60) *PI/180;
-
- 
-
-sx = ( speed * cos(theta));
-sy = (speed* sin(theta));
-alive =true;
-
-if(life<=0){
-life =3;
-score =0;
-}
-}
-
- 
-
- 
-
-function draw(){
-background(255);  
-fill(255,0,0); //<>//
-circle(x,y,20);  
-fill(0,0,255);
-rect(800-40,mouseY-50, 20,100);
-rect(20,y-50, 20,100);
-
- 
-
-x=x+sx;
-y=y+sy;
-
- 
-
-if ( x< 40 ){
-  sx= -sx;
-}
-
- 
-
-
-if ( x > 780)
-{
- sx=0;
- sy=0;
- 
- if ( alive) {
-  
-   life=life -1;
-   
- }
- 
- alive = false;
- 
-}
-
- 
-
-if (x > 760 && y > (mouseY -50) && y < (mouseY +50))
-{
- sx=-sx; 
- if ( alive)
- {
- score=score+10;
- 
- }
-}
-
- 
-
- 
-
-
-if (y > 400 || y< 0 ){
-  sy= -sy;
-}
-
- 
-
-textSize(10);
-text("Score:"+score+ " Life:" +life , 360, 20); 
-
- 
-
-
-if ( life <=0)
-{
-  textSize(50);
-  fill(255,0,0);
- text("Game Over", 300, 200); 
-}
-  
-}
+<body>
+</body>
+</html>
