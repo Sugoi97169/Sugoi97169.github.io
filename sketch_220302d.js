@@ -1,22 +1,21 @@
-let bgImg;
-let soilImg;
-let lifeImg;
-let soldierImg;
-let robotImg;
-let ratImg;
-let sx =0;
-let sy;
+PImage bgImg;
+PImage soilImg;
+PImage lifeImg;
+PImage soldierImg;
+PImage robotImg;
+PImage ratImg;
+int sx =0;
+int sy;
 
-let random;
-let a;
-let x = Math.floor(Math.random() * (580 - 160) + 160);
-let lx =x-25 ;
-let ly;
-let rx = lx-25;
-let ry;
+int x;
+int a;
+int lx = (int)random(160,640)+25;
+int ly;
+int rx = lx-25;
+int ry;
 
-function setup(){
-    createCanvas(640, 480, P2D);
+void setup(){
+    size(640, 480, P2D);
     // Enter Your Setup Code Here
     bgImg = loadImage("img/bg.png");
   soilImg = loadImage("img/soil.png");
@@ -24,8 +23,8 @@ function setup(){
   soldierImg = loadImage("img/soldier.png");
   robotImg = loadImage("img/robot.png");
    ratImg  = loadImage("img/rat.png");
-  random = Math.floor(Math.random()*4);
-   a= Math.floor(Math.random()*4);
+  x = (int)random(4);
+   a= (int)random(4);
    switch(random){
     case 0:
        sy=160; 
@@ -61,7 +60,7 @@ function setup(){
 
  
 
-function draw() {
+void draw() {
   image(bgImg,0,0);
   image(soilImg, 0,160);
   image(lifeImg,10,10);
@@ -97,9 +96,9 @@ function draw() {
    
 }
 
-function ran(){
+void ran(){
   
- let a = Math.floor(Math.random()*4);
+ int a = (int)random(4);
     switch(a){
     case 0:
        sy=160;
