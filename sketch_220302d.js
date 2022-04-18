@@ -24,8 +24,8 @@ function setup(){
   soldierImg = loadImage("img/soldier.png");
   robotImg = loadImage("img/robot.png");
    ratImg  = loadImage("img/rat.png");
-  random = (Math.random(4));
-   a= (Math.random(4));
+  random = Math.floor(Math.random()*4);
+   a= Math.floor(Math.random()*4);
    switch(random){
     case 0:
        sy=160; 
@@ -99,7 +99,7 @@ function draw() {
 
 function ran(){
   
- let a = (Math.random(4));
+ let a = Math.floor(Math.random()*4);
     switch(a){
     case 0:
        sy=160;
