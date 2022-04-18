@@ -9,7 +9,7 @@ let sy;
 
 let random;
 let a;
-let x = Math.floor(Math.random()*640)+160;
+let x = Math.floor(Math.random()*640);
 let lx =x+25 ;
 let ly;
 let rx = lx-25;
